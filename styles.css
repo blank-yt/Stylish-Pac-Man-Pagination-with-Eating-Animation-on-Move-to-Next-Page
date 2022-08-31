@@ -1,0 +1,105 @@
+:root {
+  --gap: 3.875rem;
+}
+
+body {
+  align-items: center;
+  color: #f1f1f1;
+  background-image: linear-gradient(to left, #932e3e, #F7BB97);
+  display: flex;
+  font-family: 'Consolas', sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.index {
+  cursor: pointer;
+  display: inline;
+  margin-right: 30px;
+  padding: 5px;
+  user-select: none;
+  -moz-user-select: none;
+}
+
+.index:last-child {
+  margin: 0;
+}
+
+svg {
+  left: -13px;
+  position: absolute;
+  top: -11px;
+  transition: transform 500ms;
+  width: 46px;
+}
+
+path {
+  fill: none;
+  stroke: #ffe737;
+  stroke-dasharray: 150 150;
+  stroke-width: 15;
+}
+
+.container.open:not(.flip) path {
+  animation: openRight 500ms;
+}
+
+.container.open.flip path {
+  animation: openLeft 500ms;
+}
+
+.container.i1 svg {
+  transform: translateX(0);
+}
+
+.container.i2 svg {
+  transform: translateX(calc(var(--gap) * 1 - 1px));
+}
+
+.container.i3 svg {
+  transform: translateX(calc(var(--gap) * 2 - 1px));
+}
+
+.container.i4 svg {
+  transform: translateX(calc(var(--gap) * 3 - 1px));
+}
+
+.container.i5 svg {
+  transform: translateX(calc(var(--gap) * 4 - 1px));
+}
+
+@keyframes openRight {
+  25% {
+    stroke-dasharray: 100 150;
+  }
+
+  60% {
+    stroke-dasharray: 100 150;
+  }
+
+  100% {
+    stroke-dasharray: 150 150;
+  }
+}
+
+@keyframes openLeft {
+  25% {
+    stroke-dashoffset: -50px;
+  }
+
+  60% {
+    stroke-dashoffset: -50px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
